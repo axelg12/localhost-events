@@ -6,11 +6,11 @@ export function Events(props: { title: string; events: Event[] }) {
     <div>
       <h2 class="text-xl font-bold text-gray-800 mb-3">{props.title}</h2>
       <ul class="space-y-2">
-        {props.events.map((event) => (
-          <li key={event.id}>
+        {props.events.map((event, idx) => (
+          <li key={idx}>
             <a
-              href={`#${event.id}`}
-              f-partial="#main-content"
+              href={`/event/${event.id}`}
+              f-partial="event"
               class="block px-4 py-3 rounded-lg text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors duration-150 border border-transparent hover:border-blue-200"
             >
               <span class="font-medium">{event.title}</span>

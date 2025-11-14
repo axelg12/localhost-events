@@ -1,5 +1,6 @@
 import { App, staticFiles } from "fresh";
 import { define, type State } from "./utils.ts";
+import { Event } from "./utils/types.ts";
 
 export const app = new App<State>();
 
@@ -9,7 +10,11 @@ app.use(staticFiles());
 app.use(async (ctx) => {
   const meetups = await fetch("https://apis-is.koddsson.deno.net/x/meetups");
   const data = await meetups.json();
-  ctx.state.events = data;
+  const eventsWithID = data.map((event: Event, idx: number) => ({
+    ...event,
+    id: idx,
+  }));
+  ctx.state.events = eventsWithID;
   return await ctx.next();
 });
 

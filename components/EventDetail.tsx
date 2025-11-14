@@ -1,17 +1,7 @@
-import { formatDate } from "../utils/format.ts";
+import { formatDate } from "@/utils/format.ts";
+import { Event } from "@/utils/types.ts";
 
-type EventProps = {
-  id: string;
-  title: string;
-  description: string | null;
-  url?: string;
-  data: {
-    start: string | null;
-    end: string | null;
-  };
-};
-
-export function EventDetail(props: { event: EventProps }) {
+export function EventDetail(props: { event: Event }) {
   const { event } = props;
 
   return (

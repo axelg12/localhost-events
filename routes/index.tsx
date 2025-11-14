@@ -1,4 +1,4 @@
-import { Head } from "fresh/runtime";
+import { Head, Partial } from "fresh/runtime";
 import { define } from "../utils.ts";
 import { Events } from "../components/Events.tsx";
 
@@ -36,7 +36,7 @@ export default define.page(function Home(ctx) {
         </div>
 
         <div
-          f-client-nav="true"
+          f-client-nav
           class="flex flex-col lg:flex-row gap-6 max-w-7xl mx-auto"
         >
           {/* Left Sidebar */}
@@ -47,7 +47,7 @@ export default define.page(function Home(ctx) {
             </div>
           </aside>
 
-          {/* Main Content Area - This will be updated via partials */}
+          {/* Main Content Area */}
           <main
             id="main-content"
             class="flex-1 min-h-[400px]"
@@ -67,10 +67,14 @@ export default define.page(function Home(ctx) {
                     d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                   />
                 </svg>
-                <p class="text-lg font-medium">
-                  Select an event to view details
-                </p>
-                <p class="text-sm mt-2">Click on any event from the sidebar</p>
+                <Partial name="event">
+                  <p class="text-lg font-medium">
+                    Select an event to view details
+                  </p>
+                  <p class="text-sm mt-2">
+                    Click on any event from the sidebar
+                  </p>
+                </Partial>
               </div>
             </div>
           </main>
