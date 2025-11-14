@@ -7,7 +7,9 @@ app.use(staticFiles());
 
 // Pass a shared value from a middleware
 app.use(async (ctx) => {
-  ctx.state.shared = "hello";
+  const meetups = await fetch("https://apis-is.koddsson.deno.net/x/meetups");
+  const data = await meetups.json();
+  ctx.state.events = data;
   return await ctx.next();
 });
 
