@@ -11,7 +11,7 @@ export function EventDetail(props: { event: Event }) {
       <div class="space-y-4 mb-6">
         <div class="flex items-start space-x-3">
           <svg
-            class="w-5 h-5 text-gray-500 mt-1 shrink-0"
+            class="w-5 h-5 text-gray-500 mt-1 shrink-0 self-end"
             fill="none"
             stroke="currentColor"
             viewBox="0 0 24 24"
@@ -32,7 +32,7 @@ export function EventDetail(props: { event: Event }) {
         {event.data.end && (
           <div class="flex items-start space-x-3">
             <svg
-              class="w-5 h-5 text-gray-500 mt-1 shrink-0"
+              class="w-5 h-5 text-gray-500 mt-1 shrink-0 self-end"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

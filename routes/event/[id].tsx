@@ -11,8 +11,8 @@ export const config: RouteConfig = {
 };
 
 export default define.page((ctx) => {
-  const id = 0;
-  const event = ctx.state.events.find((e) => e.id === id);
+  const id = ctx.params.id;
+  const event = ctx.state.events.find((e) => e.id === Number(id));
   if (!event) {
     return (
       <div class="bg-white rounded-lg shadow-md p-8">
