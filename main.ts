@@ -8,7 +8,9 @@ app.use(staticFiles());
 
 // Pass a shared value from a middleware
 app.use(async (ctx) => {
-  const meetups = await fetch("https://apis-is.koddsson.deno.net/x/meetups");
+  const meetupsUrl = Deno.env.get("MEETUPS_API_URL") ||
+    "https://apis-is.koddsson.deno.net/x/meetups";
+  const meetups = await fetch(meetupsUrl);
   const data = await meetups.json();
   const eventsWithID = data.map((event: Event, idx: number) => ({
     ...event,

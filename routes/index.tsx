@@ -24,7 +24,7 @@ export default define.page(function Home(ctx) {
         <div class="mb-6 text-center">
           <img
             class="mx-auto mb-4"
-            src="/logo.svg"
+            src="/logo.png"
             width="64"
             height="64"
             alt="the Fresh logo: a sliced lemon dripping with juice"
