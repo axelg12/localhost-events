@@ -2,11 +2,22 @@ import { formatDate } from "@/utils/format.ts";
 import { Event } from "@/utils/types.ts";
 
 export function Events(props: { title: string; events: Event[] }) {
+  // Sort events by date - earliest dates first
+  const sortedEvents = [...props.events].sort((a, b) => {
+    // Handle cases where start date might be null
+    if (!a.data.start && !b.data.start) return 0;
+    if (!a.data.start) return 1; // Push null dates to the end
+    if (!b.data.start) return -1; // Push null dates to the end
+
+    // Compare dates - earlier dates come first
+    return new Date(a.data.start).getTime() - new Date(b.data.start).getTime();
+  });
+
   return (
     <div>
       <h2 class="text-xl font-bold text-gray-800 mb-3">{props.title}</h2>
       <ul class="space-y-2">
-        {props.events.map((event, idx) => (
+        {sortedEvents.map((event, idx) => (
           <li key={idx}>
             <button
               type="button"
