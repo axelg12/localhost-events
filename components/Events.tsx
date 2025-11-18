@@ -2,7 +2,6 @@ import { formatDate } from "@/utils/format.ts";
 import { Event } from "@/utils/types.ts";
 
 export function Events(props: { title: string; events: Event[] }) {
-  // Sort events by date - earliest dates first
   const sortedEvents = [...props.events].sort((a, b) => {
     // Compare dates - earlier dates come first
     return new Date(a.data.start).getTime() - new Date(b.data.start).getTime();
