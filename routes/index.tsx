@@ -17,7 +17,18 @@ export default define.page(function Home(ctx) {
   return (
     <div class="min-h-screen bg-linear-to-br from-gray-50 to-gray-100">
       <Head>
-        <title>A simple view of the localhost events based on RSS feed</title>
+        <title>Localhost Events - Browse upcoming programming and tech events</title>
+        {/* Open Graph meta tags */}
+        <meta property="og:title" content="Localhost Events" />
+        <meta property="og:description" content="Browse upcoming and past programming and tech related events in your area." />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content={ctx.url.toString()} />
+        <meta property="og:site_name" content="Localhost Events" />
+        
+        {/* Twitter Card meta tags */}
+        <meta name="twitter:card" content="summary" />
+        <meta name="twitter:title" content="Localhost Events" />
+        <meta name="twitter:description" content="Browse upcoming and past programming and tech related events in your area." />
       </Head>
 
       <div class="container mx-auto px-4 py-6">
